@@ -1,0 +1,8 @@
+node_modules
+nbproject
+dist
+.tmp
+.sass-cache
+app/components
+!/dist/
+/cost-client-angular.iml

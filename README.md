@@ -1,4 +1,4 @@
-cost-application
-================
+unisys-jax
+==========
 
-Cost application is designed to manage costs
+A fancy wicket app ... Questions? See vanilla-js.com
