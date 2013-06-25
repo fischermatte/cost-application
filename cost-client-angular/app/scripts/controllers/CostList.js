@@ -18,7 +18,6 @@ angular.module('costsApp')
     };
     $scope.getPagedDataAsync = function (pageSize, page) {
       setTimeout(function () {
-        var data;
         var url = 'https://cost-server.appspot.com/costs';
         // var url = 'http://localhost:8080/costs';
         $http.get(url).success(function (largeLoad) {
