@@ -6,3 +6,4 @@ dist
 app/components
 !/dist/
 /cost-client-angular.iml
+.idea
