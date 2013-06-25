@@ -127,7 +127,8 @@
 					<unpackVersion>${gae.version}</unpackVersion>
 					<serverId>appengine.google.com</serverId>
 					<appDir>unisys-jax</appDir>
-                    <sdkDir>/opt/dev/eclipse-juno/plugins/com.google.appengine.eclipse.sdkbundle_1.7.7.1/appengine-java-sdk-1.7.7.1/</sdkDir>
+                    <sdkDir>C:\Users\Georg\.m2\repository\com\google\appengine\appengine-java-sdk\1.7.7\appengine-java-sdk-1.7.7</sdkDir>
+                    <!--<sdkDir>/opt/dev/eclipse-juno/plugins/com.google.appengine.eclipse.sdkbundle_1.7.7.1/appengine-java-sdk-1.7.7.1/</sdkDir>-->
                     <appDir>${project.build.directory}/${project.build.finalName}</appDir>
 				</configuration>
 				<dependencies>
@@ -196,7 +197,7 @@
         <profile>
             <id>env-georg</id>
             <properties>
-                <gae.home>C:\Users\Georg\.m2\repository\com\google\appengine\appengine-java-sdk\1.7.7\appengine-java-sdk-1.7.7\</gae.home>
+                <!--<gae.home>C:/Users/Georg/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.7/appengine-java-sdk-1.7.7/</gae.home>-->
             </properties>
         </profile>
 	</profiles>
