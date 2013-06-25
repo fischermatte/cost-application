@@ -23,16 +23,18 @@ angular.module('costsApp')
     $scope.getPagedDataAsync = function (pageSize, page, searchText) {
       setTimeout(function () {
         var data;
+        var url = 'https://cost-server.appspot.com/costs';
+//        var url = 'http://localhost:8080/costs';
         if (searchText) {
           var ft = searchText.toLowerCase();
-          $http.get('https://cost-server.appspot.com/costs').success(function (largeLoad) {
+          $http.get(url).success(function (largeLoad) {
             data = largeLoad.filter(function (item) {
               return JSON.stringify(item).toLowerCase().indexOf(ft) !== -1;
             });
             $scope.setPagingData(data, page, pageSize);
           });
         } else {
-          $http.get('https://cost-server.appspot.com/costs').success(function (largeLoad) {
+          $http.get(url).success(function (largeLoad) {
             $scope.setPagingData(largeLoad, page, pageSize);
           });
         }
@@ -53,6 +55,11 @@ angular.module('costsApp')
       enablePaging: true,
       showFooter: true,
       pagingOptions: $scope.pagingOptions,
-      filterOptions: $scope.filterOptions
+      filterOptions: $scope.filterOptions,
+      columnDefs: [ {field:'id', displayName:'ID'},
+        {field:'title', displayName:'Titel'},
+        {field:'time', displayName:'Verbuchte Zeit'},
+        {field:'project', displayName:'Projekt'},
+        {field:'workDay', displayName:'Datum', cellFilter:'date:"dd.MM.yyyy - HH:mm"'}]
     };
   });
