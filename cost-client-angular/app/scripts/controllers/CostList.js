@@ -1,20 +1,16 @@
 'use strict';
 
 angular.module('costsApp')
-  .controller('CostListCtrl', function ($scope, $http, Costs) {
+  .controller('CostListCtrl', function ($scope, $http, CostService) {
     $scope.pagingOptions = {
-      pageSizes: [20, 50, 100],
-      pageSize: 20,
+      pageSizes: [25, 50, 100],
+      pageSize: 25,
       totalServerItems: 0,
       currentPage: 1
     };
-    $scope.loadCosts = function (pageSize, page) {
-      $scope.costs = Costs.query();
-    };
-//    $scope.loadCosts($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
 
     $scope.$watch('pagingOptions', function () {
-      $scope.loadCosts($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
+      $scope.costs = CostService.query({page: $scope.pagingOptions.currentPage, pageSize: $scope.pagingOptions.pageSize});
     }, true);
 
     $scope.gridOptions = {
