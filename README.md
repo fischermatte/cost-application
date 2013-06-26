@@ -1,4 +1,4 @@
-unisys-jax
-==========
+cost-application
+================
 
-A fancy wicket app ... Questions? See vanilla-js.com
+just a simple REST demo
