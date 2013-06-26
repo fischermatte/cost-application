@@ -22,3 +22,8 @@ h1 {
     height: 400px;
 }
 
+.grid .ngTotalSelectContainer {
+    /* hide it since buggy */
+    display: none;
+}
+
