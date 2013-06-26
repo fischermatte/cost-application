@@ -9,7 +9,9 @@ angular.module('costsApp', ['ngGrid', 'ngResource']).
     $routeProvider.when('/about', {templateUrl: 'views/about.html'});
   }]).
   factory('Costs', ['$resource', function ($resource) {
-    return $resource('https://cost-server.appspot.com/costs/:costId', { costId: '@id' })
+    return $resource('http://localhost\\:8080/costs',{},{
+      query: { method: 'GET',params: null ,isArray:true }
+    });
   }]);
 
 

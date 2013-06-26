@@ -1,38 +1,24 @@
 'use strict';
 
 angular.module('costsApp')
-  .controller('CostListCtrl', function ($scope, $http) {
+  .controller('CostListCtrl', function ($scope, $http, Costs) {
     $scope.pagingOptions = {
       pageSizes: [20, 50, 100],
       pageSize: 20,
       totalServerItems: 0,
       currentPage: 1
     };
-    $scope.setPagingData = function (data, page, pageSize) {
-      var pagedData = data.slice((page - 1) * pageSize, page * pageSize);
-      $scope.myData = pagedData;
-      $scope.pagingOptions.totalServerItems = data.length;
-      if (!$scope.$$phase) {
-        $scope.$apply();
-      }
+    $scope.loadCosts = function (pageSize, page) {
+      $scope.costs = Costs.query();
     };
-    $scope.getPagedDataAsync = function (pageSize, page) {
-      setTimeout(function () {
-        var url = 'https://cost-server.appspot.com/costs';
-        // var url = 'http://localhost:8080/costs';
-        $http.get(url).success(function (largeLoad) {
-          $scope.setPagingData(largeLoad, page, pageSize);
-        });
-      }, 100);
-    };
-    $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
+//    $scope.loadCosts($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
 
     $scope.$watch('pagingOptions', function () {
-      $scope.getPagedDataAsync($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
+      $scope.loadCosts($scope.pagingOptions.pageSize, $scope.pagingOptions.currentPage);
     }, true);
 
     $scope.gridOptions = {
-      data: 'myData',
+      data: 'costs',
       enablePaging: true,
       showFooter: true,
       pagingOptions: $scope.pagingOptions,
