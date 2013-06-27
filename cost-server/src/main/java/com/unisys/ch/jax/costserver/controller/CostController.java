@@ -31,16 +31,13 @@ public class CostController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public Collection<Cost> list() {
-        return toDoService.findAll();
-    }
-
-    @RequestMapping(value = "/page/{page}", method = RequestMethod.GET)
-    @ResponseBody
-    public Collection<Cost> page(@PathVariable(value = "page") Integer page,
-                                 @RequestParam(value = "pageSize", defaultValue = "25", required = false) Integer pageSize) {
+    public Collection<Cost> list(@RequestParam(value = "page", required = false) Integer page,
+                                 @RequestParam(value = "pageSize", required = false) Integer pageSize) {
         if (page == null) {
-            throw new IllegalArgumentException("No page id provided");
+            page = 1;
+        }
+        if (pageSize == null){
+            pageSize = Integer.MAX_VALUE;
         }
         return toDoService.findAll(pageSize * (page - 1), pageSize);
     }
