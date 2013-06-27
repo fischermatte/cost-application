@@ -1,0 +1,9 @@
+<h2>{{ title }}</h2>
+<form class="well">
+    <p><label>Title:</label> <input type="text" name="cost.title" value="{{cost.title}}"/></p>
+    <p><label>Projekt:</label> <input type="text" name="cost.project" value="{{cost.project}}"/></p>
+    <p>
+        <a href="#/costs" class="btn">Cancel</a>
+        <button ng:click="save()" class="btn btn-primary">Save</button>
+    </p>
+</form>

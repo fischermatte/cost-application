@@ -2,7 +2,9 @@
 
 // Declare app level module which depends on filters, and services
 angular.module('costsApp').factory('CostService', ['$resource', function ($resource) {
-  return $resource('http://localhost\\:8080/costs/:id/page/:page', {id: '@id', page: '@page'}, {
-    query: { method: 'GET', params: {pageSize: 25}, isArray: true }
+//  var url = "http://localhost\\:8080/";
+  var url = 'https://cost-server.appspot.com/';
+  return $resource(url + 'costs/:id', {id: '@id'}, {
+    query: { method: 'GET', params: {pageSize: 25, page: 1}, isArray: true }
   });
 }]);
