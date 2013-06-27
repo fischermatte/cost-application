@@ -37,7 +37,7 @@ public class CostController {
             page = 1;
         }
         if (pageSize == null){
-            pageSize = Integer.MAX_VALUE;
+            pageSize = 100000;
         }
         return toDoService.findAll(pageSize * (page - 1), pageSize);
     }
