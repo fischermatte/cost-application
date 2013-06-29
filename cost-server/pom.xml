@@ -18,6 +18,7 @@
 		<downloadSources>true</downloadSources>
 
 		<gae.version>1.7.7</gae.version>
+		<gae.sdk.location>C:\Users\Georg\.m2\repository\com\google\appengine\appengine-java-sdk\1.7.7\appengine-java-sdk-1.7.7</gae.sdk.location>
         <maven.gae.plugin.version>0.9.6</maven.gae.plugin.version>
 
 		<!-- Upload to http://test.latest.<applicationName>.appspot.com by default -->
@@ -126,9 +127,7 @@
 				<configuration>
 					<unpackVersion>${gae.version}</unpackVersion>
 					<serverId>appengine.google.com</serverId>
-					<appDir>unisys-jax</appDir>
-                    <sdkDir>C:\Users\Georg\.m2\repository\com\google\appengine\appengine-java-sdk\1.7.7\appengine-java-sdk-1.7.7</sdkDir>
-                    <!--<sdkDir>/opt/dev/eclipse-juno/plugins/com.google.appengine.eclipse.sdkbundle_1.7.7.1/appengine-java-sdk-1.7.7.1/</sdkDir>-->
+                    <sdkDir>${gae.sdk.location}</sdkDir>
                     <appDir>${project.build.directory}/${project.build.finalName}</appDir>
 				</configuration>
 				<dependencies>
@@ -195,9 +194,9 @@
 		</profile>
 
         <profile>
-            <id>env-georg</id>
+            <id>lorenz</id>
             <properties>
-                <!--<gae.home>C:/Users/Georg/.m2/repository/com/google/appengine/appengine-java-sdk/1.7.7/appengine-java-sdk-1.7.7/</gae.home>-->
+                <gae.sdk.location>/opt/dev/eclipse-juno/plugins/com.google.appengine.eclipse.sdkbundle_1.8.1/appengine-java-sdk-1.8.1/</gae.sdk.location>
             </properties>
         </profile>
 	</profiles>
