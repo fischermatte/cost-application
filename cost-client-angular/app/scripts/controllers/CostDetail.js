@@ -8,7 +8,7 @@ angular.module('costsApp')
     if ($routeParams.costId === 'new') {
       // NEW
       $scope.title = 'Aufwand erfassen';
-      $scope.cost = {workDay: new Date()};
+      $scope.cost = {workDay: null};
     } else {
       // LOAD
       $scope.title = 'Aufwand bearbeiten';

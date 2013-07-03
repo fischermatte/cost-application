@@ -1,30 +1,30 @@
 <form name="costForm" class="form-horizontal" ng-submit="save()" style="margin-top:20px;">
     <fieldset>
         <legend>{{ title }}</legend>
-        <div class="control-group" ng-class="{error: cost.title.$invalid}">
+        <div class="control-group" ng-class="{success: costForm.title.$valid}">
             <label for="title" class="control-label">Titel:</label>
             <div class="controls">
-                <input id="title" type="text" ng-model="cost.title" required/>
+                <input id="title" name="title" type="text" ng-model="cost.title" required/>
             </div>
         </div>
-        <div class="control-group">
+        <div class="control-group" ng-class="{success: costForm.project.$valid}">
             <label for="project" class="control-label">Projekt:</label>
             <div class="controls">
-                <select id="project" ng-model="cost.project" ng-options="p for p in projects" bs-select required>
+                <select id="project" name="project" ng-model="cost.project" ng-options="p for p in projects" required>
                     <option value="">-- Projekt auswählen --</option>
                 </select>
             </div>
         </div>
-        <div class="control-group">
+        <div class="control-group" ng-class="{success: costForm.workDay.$valid}">
             <label for="workDay" class="control-label">Datum:</label>
-            <div id="workDay" class="controls">
-                <input type="text" ng-model="cost.workDay" bs-datepicker required>
+            <div class="controls">
+                <input id="workDay" name="workDay" type="text" ng-model="cost.workDay" bs-datepicker required>
             </div>
         </div>
-        <div class="control-group">
+        <div class="control-group" ng-class="{success: costForm.time.$valid}">
             <label for="time" class="control-label">Zeit:</label>
             <div class="controls">
-                <input id="time" type="number" name="time" ng-model="cost.time" required max="24" min="0">
+                <input id="time" name="time" type="number" name="time" ng-model="cost.time" required max="24" min="0">
             </div>
         </div>
         <div class="form-actions">
