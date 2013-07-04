@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('costsApp')
-  .controller('CostDetailCtrl', function ($scope, $routeParams, CostService) {
+  .controller('CostDetailCtrl', function ($scope, $routeParams, $location, CostService) {
     // Project selection list
     $scope.projects = ['BAFU','BIT','EJPD','UNISYS','POST','VBS'];
 
@@ -19,6 +19,8 @@ angular.module('costsApp')
     }
 
     $scope.save = function (){
-      CostService.save($scope.cost);
+      CostService.save($scope.cost,function(){
+        $location.url('/costs');
+      });
     };
   });
