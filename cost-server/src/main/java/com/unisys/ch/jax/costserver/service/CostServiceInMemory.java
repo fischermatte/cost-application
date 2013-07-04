@@ -1,11 +1,9 @@
 package com.unisys.ch.jax.costserver.service;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.TreeMap;
+import java.util.*;
 
 import com.unisys.ch.jax.costserver.model.Project;
+import org.springframework.beans.support.PropertyComparator;
 import org.springframework.stereotype.Service;
 
 import com.unisys.ch.jax.costserver.model.Cost;
@@ -51,6 +49,7 @@ public class CostServiceInMemory implements CostService {
     @Override
     public Collection<Cost> findAll(int start, int amount) {
         ArrayList<Cost> retVal = new ArrayList<Cost>(findAll());
+        Collections.sort(retVal, new PropertyComparator("workDay",true,false));
         if (start > retVal.size()) {
             return new ArrayList<Cost>(0);
         } else {
