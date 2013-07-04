@@ -48,7 +48,7 @@ public class CostController {
         return toDoService.save(todo);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void update(@PathVariable(value = "id") Long id, @RequestBody Cost todo) {
         if (todo.getId() == null || !todo.getId().equals(id)) {
