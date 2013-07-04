@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-var app = angular.module('costsApp', ['ngGrid', 'ngResource', '$strap.directives']).
+angular.module('costsApp', ['ngGrid', 'ngResource', '$strap.directives']).
   config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/', {templateUrl: 'views/cost-list.html', controller: 'CostListCtrl'});
     $routeProvider.when('/costs', {templateUrl: 'views/cost-list.html', controller: 'CostListCtrl'});
@@ -13,13 +13,6 @@ var app = angular.module('costsApp', ['ngGrid', 'ngResource', '$strap.directives
       format: 'dd.mm.yyyy'
     }
   });
-
-//app.value('$strapConfig', {
-//  datepicker: {
-//    language: 'de',
-//    format: 'M d, yyyy'
-//  }
-//});
 
 
 

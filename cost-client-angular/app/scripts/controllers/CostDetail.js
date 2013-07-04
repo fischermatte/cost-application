@@ -19,6 +19,6 @@ angular.module('costsApp')
     }
 
     $scope.save = function (){
-        CostService.save($scope.cost);
+      CostService.save($scope.cost);
     };
   });
