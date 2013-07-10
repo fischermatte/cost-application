@@ -29,7 +29,8 @@
         </div>
         <div class="form-actions">
             <a href="#/costs" class="btn">Abbrechen</a>
-            <button class="btn btn-primary">Speichern</button>
+            <input type="submit" class="btn btn-primary" value="Speichern"/>
+            <input type="button" class="btn" ng-click="delete()" ng-show="cost.id != null" value="Löschen"/>
         </div>
     </fieldset>
 </form>
