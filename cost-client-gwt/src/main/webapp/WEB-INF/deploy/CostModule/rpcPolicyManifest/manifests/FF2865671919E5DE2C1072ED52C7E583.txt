@@ -1,0 +1,2 @@
+serviceClass: com.unisys.ch.jax.cost.gwt.client.CostService
+path: 67BAD5829315F1A024B7DA95B6CC3146.gwt.rpc

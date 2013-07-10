@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+  <!-- Inherit our applications main module.                      -->
+  <inherits name='com.unisys.ch.jax.cost.gwt.CostModule' />
+
+  <!-- Specify the path to any remote services.                   -->
+  <servlet path="/CostModule/greet" class="com.unisys.ch.jax.cost.gwt.server.GreetingServiceImpl" />
+
+</module>

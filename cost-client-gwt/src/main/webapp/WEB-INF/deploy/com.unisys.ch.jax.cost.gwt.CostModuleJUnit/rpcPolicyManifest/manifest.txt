@@ -1,0 +1,2 @@
+# Module com.unisys.ch.jax.cost.gwt.CostModuleJUnit
+# RPC service class, partial path of RPC policy file

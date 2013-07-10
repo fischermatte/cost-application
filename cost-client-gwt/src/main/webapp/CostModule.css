@@ -1,0 +1,119 @@
+h1 {
+	font-size: 2em;
+	font-weight: bold;
+	padding: 60px 0px 60px;
+	text-align: center;
+	background: url("images/cost.jpg") no-repeat scroll center center
+		#73268C;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.costs-ListRow td {
+	border-bottom: 1px solid #E2E2E2;
+}
+
+.costs-ListContents td {
+	padding: 5px;
+}
+
+.costs-ListContainer td {
+	padding: 5px;
+}
+
+td.costs-ListContainer {
+	padding-right: 10px;
+}
+
+.costs-DetailContainer td {
+	padding: 5px;
+	vertical-align: top;
+	font-weight: bold;
+}
+
+td.costs-DetailContainer {
+	padding-right: 10px;
+}
+
+table {
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+	spacing: 0px;
+}
+
+td {
+	border-collapse: collapse;
+	margin: 0px;
+	padding: 0px;
+	spacing: 0px;
+}
+
+th,td {
+	padding: 0px;
+}
+
+td.add-cost-label {
+	text-align: left;
+}
+
+add-cost-input {
+	border: 1px solid red;
+	border-collapse: collapse;
+	margin-right: 0px;
+	margin-left: auto;
+}
+
+td.costs-NavContainer {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+td.costs-ListMenu {
+	background-color: #D0E4F6;
+	padding-bottom: 4px;
+	padding-top: 0px;
+}
+
+td.costs-DetailMenu {
+	background-color: #D0E4F6;
+	padding-bottom: 0px;
+	padding-top: 4px;
+}
+
+td.costs-ListContents {
+	padding: 10px 5px 0px 5px;
+}
+
+.costs-HeaderContainer {
+	padding-right: 10px;
+}
+
+.costs-ListCheckbox td {
+	padding-right: 4px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+td.costs-ListName {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.gwt-DecoratorPanel .middleCenter {
+	height: 100%;
+	width: 100%;
+}
+
+.gwt-ListBox {
+	background: none repeat scroll 0 0 #FFFFFF;
+	width: 308px;
+}
+
+.gwt-TextBox {
+	padding: 2px;
+	width: 300px;
+}
