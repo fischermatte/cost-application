@@ -3,8 +3,10 @@ package com.unisys.ch.jax.costserver.service;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.TreeMap;
 
+import org.springframework.beans.support.PropertyComparator;
 import org.springframework.stereotype.Service;
 
 import com.unisys.ch.jax.cost.common.model.Cost;
@@ -34,7 +36,7 @@ public class CostServiceInMemory implements CostService {
     }
 
     public Collection<Cost> findAll() {
-        return cachedToDos.descendingMap().values();
+        return cachedToDos.values();
     }
 
     public Cost save(Cost todo) {
@@ -51,6 +53,7 @@ public class CostServiceInMemory implements CostService {
     @Override
     public Collection<Cost> findAll(int start, int amount) {
         ArrayList<Cost> retVal = new ArrayList<Cost>(findAll());
+        Collections.sort(retVal, new PropertyComparator("workDay",true,false));
         if (start > retVal.size()) {
             return new ArrayList<Cost>(0);
         } else {
