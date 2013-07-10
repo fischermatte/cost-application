@@ -24,7 +24,7 @@ angular.module('costsApp')
         {field: 'title', displayName: 'Titel'},
         {field: 'time', displayName: 'Verbuchte Zeit'},
         {field: 'project', displayName: 'Projekt'},
-        {field: 'workDay', displayName: 'Datum', cellFilter: 'date:"dd.MM.yyyy - HH:mm"'}
+        {field: 'workDay', displayName: 'Datum', cellFilter: 'date:"dd.MM.yyyy"'}
       ],
       afterSelectionChange: function(rowItem){
         $location.url('/costs/' + rowItem.entity.id);
