@@ -212,12 +212,6 @@
                 <gae.sdk.location>C:\Users\ludewigg.EU\.m2\repository\com\google\appengine\appengine-java-sdk\1.7.7\appengine-java-sdk-1.7.7\</gae.sdk.location>
             </properties>
         </profile>
-        <profile>
-            <id>georg_work</id>
-            <properties>
-                <gae.sdk.location>C:\Users\ludewigg.EU\.m2\repository\com\google\appengine\appengine-java-sdk\1.7.7\appengine-java-sdk-1.7.7\</gae.sdk.location>
-            </properties>
-        </profile>
 	</profiles>
 
 	<repositories>
