@@ -2,7 +2,7 @@ package com.unisys.ch.jax.costserver.service;
 
 import java.util.Collection;
 
-import com.unisys.ch.jax.costserver.model.Cost;
+import com.unisys.ch.jax.cost.common.model.Cost;
 
 public interface CostService {
 

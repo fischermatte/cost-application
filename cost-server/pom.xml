@@ -6,7 +6,7 @@
 	<!-- The Basics -->
 	<groupId>com.unisys.ch.jax</groupId>
 	<artifactId>cost-server</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.3-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<properties>
@@ -19,25 +19,32 @@
 
 		<gae.version>1.7.7</gae.version>
 		<gae.sdk.location>C:\Users\Georg\.m2\repository\com\google\appengine\appengine-java-sdk\1.7.7\appengine-java-sdk-1.7.7</gae.sdk.location>
-        <maven.gae.plugin.version>0.9.6</maven.gae.plugin.version>
+		<maven.gae.plugin.version>0.9.6</maven.gae.plugin.version>
 
 		<!-- Upload to http://test.latest.<applicationName>.appspot.com by default -->
 		<gae.application.version>test</gae.application.version>
 
 		<datanucleus.version>1.1.5</datanucleus.version>
 		<spring.version>3.2.2.RELEASE</spring.version>
+		<costVersion>0.3</costVersion>
 	</properties>
 
 	<name>cost-server</name>
 
 	<dependencies>
 
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
-        </dependency>
+		<dependency>
+			<groupId>com.unisys.ch.jax.cost</groupId>
+			<artifactId>cost-common</artifactId>
+			<version>${costVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<!-- Google App Engine meta-package -->
 		<dependency>
@@ -47,7 +54,7 @@
 			<type>pom</type>
 		</dependency>
 
-        <!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
+		<!-- GAE libraries for local testing as described here: http://code.google.com/appengine/docs/java/howto/unittesting.html -->
 		<dependency>
 			<groupId>com.google.appengine</groupId>
 			<artifactId>appengine-api-labs</artifactId>
@@ -66,7 +73,7 @@
 		<!-- <groupId>com.google.appengine</groupId> -->
 		<!-- <artifactId>appengine-testing</artifactId> -->
 		<!-- <version>${gae.version}</version> -->
-        <!-- <scope>test</scope> -->
+		<!-- <scope>test</scope> -->
 		<!-- </dependency> -->
 
 		<!-- Jackson JSON Mapper -->
@@ -127,8 +134,8 @@
 				<configuration>
 					<unpackVersion>${gae.version}</unpackVersion>
 					<serverId>appengine.google.com</serverId>
-                    <sdkDir>${gae.sdk.location}</sdkDir>
-                    <appDir>${project.build.directory}/${project.build.finalName}</appDir>
+					<sdkDir>${gae.sdk.location}</sdkDir>
+					<appDir>${project.build.directory}/${project.build.finalName}</appDir>
 				</configuration>
 				<dependencies>
 					<dependency>
@@ -159,7 +166,7 @@
 				</configuration>
 			</plugin>
 
-        </plugins>
+		</plugins>
 	</build>
 
 	<profiles>
@@ -193,10 +200,16 @@
 			</properties>
 		</profile>
 
+		<profile>
+			<id>lorenz</id>
+			<properties>
+				<gae.sdk.location>/opt/dev/eclipse-juno/plugins/com.google.appengine.eclipse.sdkbundle_1.8.1/appengine-java-sdk-1.8.1/</gae.sdk.location>
+			</properties>
+		</profile>
         <profile>
-            <id>lorenz</id>
+            <id>georg_work</id>
             <properties>
-                <gae.sdk.location>/opt/dev/eclipse-juno/plugins/com.google.appengine.eclipse.sdkbundle_1.8.1/appengine-java-sdk-1.8.1/</gae.sdk.location>
+                <gae.sdk.location>C:\Users\ludewigg.EU\.m2\repository\com\google\appengine\appengine-java-sdk\1.7.7\appengine-java-sdk-1.7.7\</gae.sdk.location>
             </properties>
         </profile>
 	</profiles>

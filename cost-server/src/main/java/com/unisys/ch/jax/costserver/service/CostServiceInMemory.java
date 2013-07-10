@@ -5,10 +5,10 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.TreeMap;
 
-import com.unisys.ch.jax.costserver.model.Project;
 import org.springframework.stereotype.Service;
 
-import com.unisys.ch.jax.costserver.model.Cost;
+import com.unisys.ch.jax.cost.common.model.Cost;
+import com.unisys.ch.jax.cost.common.model.Project;
 
 @Service
 public class CostServiceInMemory implements CostService {
@@ -34,7 +34,7 @@ public class CostServiceInMemory implements CostService {
     }
 
     public Collection<Cost> findAll() {
-        return cachedToDos.values();
+        return cachedToDos.descendingMap().values();
     }
 
     public Cost save(Cost todo) {
@@ -66,11 +66,11 @@ public class CostServiceInMemory implements CostService {
         }
     }
 
-    private Calendar createDate(long x) {
+    private long createDate(long x) {
         Calendar date = Calendar.getInstance();
         date.setTime(INITIAL_DATE.getTime());
         date.add(Calendar.DAY_OF_YEAR, (int) x);
-        return date;
+        return date.getTimeInMillis();
     }
 
 }

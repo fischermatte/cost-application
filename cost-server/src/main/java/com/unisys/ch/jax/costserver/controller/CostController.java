@@ -7,9 +7,16 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-import com.unisys.ch.jax.costserver.model.Cost;
+import com.unisys.ch.jax.cost.common.model.Cost;
 import com.unisys.ch.jax.costserver.service.CostService;
 
 @Controller
@@ -48,7 +55,7 @@ public class CostController {
         return toDoService.save(todo);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public void update(@PathVariable(value = "id") Long id, @RequestBody Cost todo) {
         if (todo.getId() == null || !todo.getId().equals(id)) {
