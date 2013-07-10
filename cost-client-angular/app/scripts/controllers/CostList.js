@@ -19,7 +19,6 @@ angular.module('costsApp')
       enablePaging: true,
       showFooter: true,
       pagingOptions: $scope.pagingOptions,
-      selectedItems: $scope.selectedItems,
       columnDefs: [
         {field: 'id', displayName: 'ID'},
         {field: 'title', displayName: 'Titel'},
