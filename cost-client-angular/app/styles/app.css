@@ -27,3 +27,10 @@ h1 {
     display: none;
 }
 
+.grid .ngRow:hover {
+    background-color: #c9dde1;
+}
+
+:invalid {
+    box-shadow: none;
+}

@@ -1,9 +1,36 @@
-<h2>{{ title }}</h2>
-<form class="well">
-    <p><label>Title:</label> <input type="text" name="cost.title" value="{{cost.title}}"/></p>
-    <p><label>Projekt:</label> <input type="text" name="cost.project" value="{{cost.project}}"/></p>
-    <p>
-        <a href="#/costs" class="btn">Cancel</a>
-        <button ng:click="save()" class="btn btn-primary">Save</button>
-    </p>
+<form name="costForm" class="form-horizontal" ng-submit="save()" style="margin-top:20px;">
+    <fieldset>
+        <legend>{{ title }}</legend>
+        <div class="control-group" ng-class="{success: costForm.title.$valid}">
+            <label for="title" class="control-label">Titel:</label>
+            <div class="controls">
+                <input id="title" name="title" type="text" ng-model="cost.title" required/>
+            </div>
+        </div>
+        <div class="control-group" ng-class="{success: costForm.project.$valid}">
+            <label for="project" class="control-label">Projekt:</label>
+            <div class="controls">
+                <select id="project" name="project" ng-model="cost.project" ng-options="p for p in projects" required>
+                    <option value="">-- Projekt auswählen --</option>
+                </select>
+            </div>
+        </div>
+        <div class="control-group" ng-class="{success: costForm.workDay.$valid}">
+            <label for="workDay" class="control-label">Datum:</label>
+            <div class="controls">
+                <input id="workDay" name="workDay" type="text" ng-model="cost.workDay" bs-datepicker required>
+            </div>
+        </div>
+        <div class="control-group" ng-class="{success: costForm.time.$valid}">
+            <label for="time" class="control-label">Zeit:</label>
+            <div class="controls">
+                <input id="time" name="time" type="number" name="time" ng-model="cost.time" required max="24" min="0">
+            </div>
+        </div>
+        <div class="form-actions">
+            <a href="#/costs" class="btn">Abbrechen</a>
+            <input type="submit" class="btn btn-primary" value="Speichern"/>
+            <input type="button" class="btn" ng-click="delete()" ng-show="cost.id != null" value="Löschen"/>
+        </div>
+    </fieldset>
 </form>
