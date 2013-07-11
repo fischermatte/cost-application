@@ -1,6 +1,7 @@
 package com.unisys.ch.jax.cost.common.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Cost implements Serializable {
 	
@@ -10,14 +11,14 @@ public class Cost implements Serializable {
 	Long id;
 	String title;
 	String description;
-	Long workDay;
+	Date workDay;
 	Double time;
 	Project project;
 	
 	public Cost() {
 	}
 	
-	public Cost(Long id, String title, String description, Long workDay,
+	public Cost(Long id, String title, String description, Date workDay,
 			Double time, Project project) {
 		super();
 		this.id = id;
@@ -52,11 +53,11 @@ public class Cost implements Serializable {
 		this.description = description;
 	}
 
-	public Long getWorkDay() {
+	public Date getWorkDay() {
 		return workDay;
 	}
 
-	public void setWorkDay(Long workDay) {
+	public void setWorkDay(Date workDay) {
 		this.workDay = workDay;
 	}
 

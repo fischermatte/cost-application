@@ -79,7 +79,7 @@ public class CostDetailPresenter implements Presenter {
 		costForm.getDescription().setValue(cost.getDescription());
 		costForm.getProject().setValue(cost.getProject());
 		costForm.getTime().setValue(cost.getTime());
-		costForm.getDate().setValue(new Date(cost.getWorkDay()));
+		costForm.getDate().setValue(cost.getWorkDay());
 	}
 
 	private void doSave() {
@@ -87,7 +87,7 @@ public class CostDetailPresenter implements Presenter {
 		cost.setDescription(costForm.getDescription().getValue());
 		cost.setProject(costForm.getProject().getValue());
 		cost.setTime(costForm.getTime().getValue());
-		cost.setWorkDay(costForm.getDate().getValue().getTime());
+		cost.setWorkDay(costForm.getDate().getValue());
 
 		costService.save(cost, new AsyncCallback<Void>() {
 			public void onSuccess(Void result) {

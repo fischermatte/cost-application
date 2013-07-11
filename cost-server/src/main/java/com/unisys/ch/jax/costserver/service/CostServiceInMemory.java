@@ -1,10 +1,6 @@
 package com.unisys.ch.jax.costserver.service;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.TreeMap;
+import java.util.*;
 
 import org.springframework.beans.support.PropertyComparator;
 import org.springframework.stereotype.Service;
@@ -71,11 +67,11 @@ public class CostServiceInMemory implements CostService {
         }
     }
 
-    private long createDate(long x) {
+    private Date createDate(long x) {
         Calendar date = Calendar.getInstance();
         date.setTime(INITIAL_DATE.getTime());
         date.add(Calendar.DAY_OF_YEAR, (int) x);
-        return date.getTimeInMillis();
+        return date.getTime();
     }
 
 }
