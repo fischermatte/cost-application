@@ -4,7 +4,6 @@
 	<groupId>com.unisys.ch.jax.cost</groupId>
 	<artifactId>cost-common</artifactId>
 	<version>0.3</version>
-	<name>Cost Common Module</name>
 
 	<build>
 		<plugins>

@@ -8,7 +8,6 @@
 	<artifactId>cost-client-gwt</artifactId>
 	<packaging>war</packaging>
 	<version>0.3-SNAPSHOT</version>
-	<name>Cost Client GWT</name>
 
 	<properties>
 		<!-- Convenience property to set the versions -->

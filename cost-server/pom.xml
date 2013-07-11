@@ -29,8 +29,6 @@
 		<costVersion>0.3</costVersion>
 	</properties>
 
-	<name>cost-server</name>
-
 	<dependencies>
 
 		<dependency>

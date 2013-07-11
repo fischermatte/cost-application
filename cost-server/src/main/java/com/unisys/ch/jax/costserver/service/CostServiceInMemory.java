@@ -17,6 +17,7 @@ public class CostServiceInMemory implements CostService {
 
     private Long NUMBER_OF_ENTRIES_TO_GENERATE = 100L;
     private static final Calendar INITIAL_DATE = Calendar.getInstance();
+
     {
         INITIAL_DATE.set(Calendar.YEAR, 2013);
         INITIAL_DATE.set(Calendar.MONTH, 0);
@@ -31,6 +32,7 @@ public class CostServiceInMemory implements CostService {
         cachedToDos = new TreeMap<Long, Cost>();
         generateDummyEntities();
     }
+
     public Cost findById(Long id) {
         return cachedToDos.get(id);
     }
@@ -53,7 +55,7 @@ public class CostServiceInMemory implements CostService {
     @Override
     public Collection<Cost> findAll(int start, int amount) {
         ArrayList<Cost> retVal = new ArrayList<Cost>(findAll());
-        Collections.sort(retVal, new PropertyComparator("workDay",true,false));
+        Collections.sort(retVal, new PropertyComparator("workDay", true, false));
         if (start > retVal.size()) {
             return new ArrayList<Cost>(0);
         } else {

@@ -4,4 +4,4 @@ target
 .externalToolBuilders
 .settings
 .classpath
-/cost-server.iml
+*.iml
