@@ -19,9 +19,8 @@ public class CorsFilter extends OncePerRequestFilter {
         if (request.getHeader("Access-Control-Request-Method") != null && "OPTIONS".equals(request.getMethod())); {
             // CORS "pre-flight" request
             response.addHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-            response.addHeader("Access-Control-Allow-Headers", "Authorization");
             response.addHeader("Access-Control-Max-Age", "1728000");
-            response.addHeader("Access-Control-Allow-Headers", "Content-Type, x-http-method-override, x-requested-with");
+            response.addHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, x-http-method-override, x-requested-with");
         }
         filterChain.doFilter(request, response);
     }
