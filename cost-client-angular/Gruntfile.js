@@ -303,43 +303,6 @@ module.exports = function (grunt) {
     'karma'
   ]);
 
-  grunt.registerTask('build_org', [
-    'clean:dist',
-    'jshint',
-    'test',
-    'coffee',
-    'compass:dist',
-    'useminPrepare',
-    'imagemin',
-    'cssmin',
-    'htmlmin',
-    'concat',
-    'copy',
-    'cdnify',
-    'ngmin',
-    'uglify',
-    'rev',
-    'usemin'
-  ]);
-
-  grunt.registerTask('build_with_test', [
-    'clean:dist',
-    'jshint',
-    'test',
-    'coffee',
-    'compass:dist',
-    'useminPrepare',
-    'imagemin',
-    'cssmin',
-    'htmlmin',
-    'concat',
-    'copy',
-    'ngmin',
-    'uglify',
-    'rev',
-    'usemin'
-  ]);
-
   grunt.registerTask('build', [
     'clean:dist',
     'jshint',
