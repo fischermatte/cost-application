@@ -39,7 +39,7 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/{,*/}*.html',
           '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.app %>/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ],
         tasks: ['livereload']
       }
@@ -135,7 +135,7 @@ module.exports = function (grunt) {
       options: {
         sassDir: '<%= yeoman.app %>/styles',
         cssDir: '.tmp/styles',
-        imagesDir: '<%= yeoman.app %>/images',
+        imagesDir: '<%= yeoman.app %>/img',
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
         importPath: '<%= yeoman.app %>/components',
@@ -176,9 +176,9 @@ module.exports = function (grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= yeoman.app %>/images',
+            cwd: '<%= yeoman.app %>/img',
             src: '{,*/}*.{png,jpg,jpeg,ico}',
-            dest: '<%= yeoman.dist %>/images'
+            dest: '<%= yeoman.dist %>/img'
           }
         ]
       }
@@ -248,7 +248,6 @@ module.exports = function (grunt) {
           src: [
             '<%= yeoman.dist %>/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/styles/fonts/*'
           ]
         }
@@ -266,8 +265,17 @@ module.exports = function (grunt) {
               '*.{ico,txt}',
               '.htaccess',
               'data/*',
-              'images/{,*/}*.{gif,jpeg,ico,png}',
+              'img/{,*/}*.{gif,jpeg,ico,png}',
               'styles/fonts/*'
+            ]
+          },
+          {
+            expand: true,
+            flatten: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>/img',
+            src: [
+              'components/bootstrap/img/*'
             ]
           }
         ]
