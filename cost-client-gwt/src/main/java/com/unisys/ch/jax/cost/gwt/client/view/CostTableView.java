@@ -1,6 +1,7 @@
 package com.unisys.ch.jax.cost.gwt.client.view;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -16,6 +17,7 @@ import com.google.gwt.user.client.ui.HTMLTable;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.unisys.ch.jax.cost.common.model.Cost;
+import com.unisys.ch.jax.cost.common.model.Project;
 import com.unisys.ch.jax.cost.gwt.client.presenter.CostTablePresenter.CostTable;
 
 public class CostTableView extends Composite implements CostTable {
@@ -104,14 +106,24 @@ public class CostTableView extends Composite implements CostTable {
 			costTable.setText(0, 4, "Datum");
 			costTable.setText(0, 5, "Zeit");
 			costTable.setText(0, 6, "Projekt");
+			costTable.getCellFormatter().addStyleName(0, 0, "costs-TableTitle");
+			costTable.getCellFormatter().addStyleName(0, 1, "costs-TableTitle");
+			costTable.getCellFormatter().addStyleName(0, 2, "costs-TableTitle");
+			costTable.getCellFormatter().addStyleName(0, 3, "costs-TableTitle");
+			costTable.getCellFormatter().addStyleName(0, 4, "costs-TableTitle");
+			costTable.getCellFormatter().addStyleName(0, 5, "costs-TableTitle");
+			costTable.getCellFormatter().addStyleName(0, 6, "costs-TableTitle");
 			for (int i = position; i < position + data.size(); ++i) {
 				costTable.setWidget(i, 0, new CheckBox());
 				costTable.setText(i, 1, data.get(i-position).getId().toString());
 				costTable.setText(i, 2, data.get(i-position).getTitle());
 				costTable.setText(i, 3, data.get(i-position).getDescription());
-				costTable.setText(i, 4, DateTimeFormat.getLongDateFormat().format(data.get(i-position).getWorkDay()));
-				costTable.setText(i, 5, data.get(i-position).getTime().toString());
-				costTable.setText(i, 6, data.get(i-position).getProject().name());
+				Date workDay = data.get(i-position).getWorkDay();
+				costTable.setText(i, 4, workDay == null ? "" : DateTimeFormat.getLongDateFormat().format(workDay));
+				Double time = data.get(i-position).getTime();
+				costTable.setText(i, 5, time == null ? "" : time.toString());
+				Project project = data.get(i-position).getProject();
+				costTable.setText(i, 6, project == null ? "" : project.name());
 			}
 			position += data.size(); 
 		}
