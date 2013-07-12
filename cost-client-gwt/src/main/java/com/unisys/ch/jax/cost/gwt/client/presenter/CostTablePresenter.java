@@ -89,7 +89,7 @@ public class CostTablePresenter implements Presenter {
 		List<Long> ids = new ArrayList<Long>();
 
 		for (int i = 0; i < selectedRows.size(); ++i) {
-			ids.add(costs.get(selectedRows.get(i)).getId());
+			ids.add(costs.get(selectedRows.get(i)-1).getId());
 		}
 
 		costService.delete(ids, new AsyncCallback<Void>() {

@@ -117,3 +117,7 @@ td.costs-ListName {
 	padding: 2px;
 	width: 300px;
 }
+
+.costs-ListContents tr:hover {
+    background: #cccccc;
+}

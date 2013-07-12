@@ -62,7 +62,9 @@ public class CostDetailView extends Composite implements CostForm {
 		// Action Menu
 		HorizontalPanel menuPanel = new HorizontalPanel();
 		saveButton = new Button("Save");
+		saveButton.setStyleName("btn");
 		cancelButton = new Button("Cancel");
+		cancelButton.setStyleName("btn");
 		menuPanel.add(saveButton);
 		menuPanel.add(cancelButton);
 		contentTable.getCellFormatter().addStyleName(1, 0, "costs-DetailContainer");
@@ -74,6 +76,7 @@ public class CostDetailView extends Composite implements CostForm {
 	private void initCostForm() {
 		detailsTable.setWidget(0, 0, new Label("Titel"));
 		title = new TextBox();
+		title.setWidth("294px");
 		detailsTable.setWidget(0, 1, title);
 
 		detailsTable.setWidget(1, 0, new Label("Beschreibung"));
@@ -97,12 +100,12 @@ public class CostDetailView extends Composite implements CostForm {
 		
 		detailsTable.setWidget(3, 0, new Label("Zeit [h]"));
 		time = new DoubleBox();
-		time.setWidth("304px");
+		time.setWidth("294px");
 		detailsTable.setWidget(3, 1, time);
 		
 		detailsTable.setWidget(4, 0, new Label("Datum"));
 		date = new DatePicker();
-		date.setWidth("307px");
+		date.setWidth("308px");
 		detailsTable.setWidget(4, 1, date);
 		
 		title.setFocus(true);

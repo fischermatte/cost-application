@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.HasClickHandlers;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
@@ -21,7 +22,7 @@ public class CostTableView extends Composite implements CostTable {
 	private final Button addButton, deleteButton, loadButton;
 	private FlexTable costTable;
 	private final FlexTable contentTable;
-	private int position = 0;
+	private int position = 1;
 
 	public CostTableView() {
 		
@@ -49,8 +50,10 @@ public class CostTableView extends Composite implements CostTable {
 		hPanel.setSpacing(0);
 		hPanel.setHorizontalAlignment(HorizontalPanel.ALIGN_LEFT);
 		addButton = new Button("Add");
+		addButton.setStyleName("btn");
 		hPanel.add(addButton);
 		deleteButton = new Button("Delete");
+		deleteButton.setStyleName("btn");
 		hPanel.add(deleteButton);
 		contentTable.getCellFormatter().addStyleName(0, 0, "costs-ListMenu");
 		contentTable.setWidget(0, 0, hPanel);
@@ -65,7 +68,8 @@ public class CostTableView extends Composite implements CostTable {
 		contentTable.setWidget(1, 0, costTable);
 		
 		loadButton = new Button("Mehr laden");
-		contentTable.getCellFormatter().addStyleName(2, 0, "costs-ListMenu");
+		loadButton.setStyleName("btn");
+		contentTable.getCellFormatter().addStyleName(2, 0, "costs-DetailMenu");
 		contentTable.setWidget(2, 0, loadButton);
 
 		contentTableDecorator.add(contentTable);
@@ -91,14 +95,23 @@ public class CostTableView extends Composite implements CostTable {
 	public void setData(List<Cost> data, boolean add) {
 		if (!add) {
 			costTable.removeAllRows();
-			position = 0;
+			position = 1;
 		}
 		if (data != null) {
+			costTable.setText(0, 1, "ID");
+			costTable.setText(0, 2, "Title");
+			costTable.setText(0, 3, "Beschreibung");
+			costTable.setText(0, 4, "Datum");
+			costTable.setText(0, 5, "Zeit");
+			costTable.setText(0, 6, "Projekt");
 			for (int i = position; i < position + data.size(); ++i) {
 				costTable.setWidget(i, 0, new CheckBox());
 				costTable.setText(i, 1, data.get(i-position).getId().toString());
 				costTable.setText(i, 2, data.get(i-position).getTitle());
 				costTable.setText(i, 3, data.get(i-position).getDescription());
+				costTable.setText(i, 4, DateTimeFormat.getLongDateFormat().format(data.get(i-position).getWorkDay()));
+				costTable.setText(i, 5, data.get(i-position).getTime().toString());
+				costTable.setText(i, 6, data.get(i-position).getProject().name());
 			}
 			position += data.size(); 
 		}
@@ -122,7 +135,7 @@ public class CostTableView extends Composite implements CostTable {
 	public List<Integer> getSelectedRows() {
 		List<Integer> selectedRows = new ArrayList<Integer>();
 
-		for (int i = 0; i < costTable.getRowCount(); ++i) {
+		for (int i = 1; i < costTable.getRowCount(); ++i) {
 			CheckBox checkBox = (CheckBox) costTable.getWidget(i, 0);
 			if (checkBox.getValue()) {
 				selectedRows.add(i);
