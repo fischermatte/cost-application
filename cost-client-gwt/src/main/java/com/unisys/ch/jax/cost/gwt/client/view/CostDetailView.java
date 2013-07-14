@@ -15,6 +15,7 @@ import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.SubmitButton;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ValueListBox;
@@ -61,7 +62,7 @@ public class CostDetailView extends Composite implements CostForm {
 
 		// Action Menu
 		HorizontalPanel menuPanel = new HorizontalPanel();
-		saveButton = new Button("Save");
+		saveButton = new SubmitButton("Save");
 		saveButton.setStyleName("btn");
 		cancelButton = new Button("Cancel");
 		cancelButton.setStyleName("btn");
@@ -77,6 +78,7 @@ public class CostDetailView extends Composite implements CostForm {
 		detailsTable.setWidget(0, 0, new Label("Titel"));
 		title = new TextBox();
 		title.setWidth("294px");
+		title.getElement().setAttribute("required", "true");
 		detailsTable.setWidget(0, 1, title);
 
 		detailsTable.setWidget(1, 0, new Label("Beschreibung"));
@@ -96,16 +98,19 @@ public class CostDetailView extends Composite implements CostForm {
 			}
 		});
 		project.setAcceptableValues(Arrays.asList(Project.values()));
+		project.getElement().setAttribute("required", "true");
 		detailsTable.setWidget(2, 1, project);
 		
 		detailsTable.setWidget(3, 0, new Label("Zeit [h]"));
 		time = new DoubleBox();
 		time.setWidth("294px");
+		time.getElement().setAttribute("required", "true");
 		detailsTable.setWidget(3, 1, time);
 		
 		detailsTable.setWidget(4, 0, new Label("Datum"));
 		date = new DatePicker();
 		date.setWidth("308px");
+		date.getElement().setAttribute("required", "true");
 		detailsTable.setWidget(4, 1, date);
 		
 		title.setFocus(true);
