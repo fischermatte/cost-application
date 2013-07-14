@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('costsApp')
-  .controller('CostListCtrl', function ($scope, $http, $location, CostService) {
+  .controller('CostListCtrl', function ($scope, $location, CostService) {
     $scope.pagingOptions = {
       pageSizes: [25, 50, 100],
       pageSize: 25,
