@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" ng-app="costsApp">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Cost Client Angular</title>
@@ -28,48 +28,51 @@
     <script src="components/angular-strap/vendor/bootstrap-datepicker.js"></script>
     <script src="components/angular-strap/vendor/bootstrap-select.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/services/CostService.js"></script>
+    <!--    <script src="scripts/services/CostService.js"></script>-->
+    <script src="scripts/services/CostServiceLocal.js"></script>
     <script src="scripts/controllers/CostList.js"></script>
     <script src="scripts/controllers/CostDetail.js"></script>
+    <script src="scripts/modules/angular-local-storage.js"></script>
+    <script src="scripts/modules/guid-generator.js"></script>
     <!-- endbuild -->
-</head>
-<body>
-<!-- NAVIGATION -->
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
         <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="#">Aufwandserfassung</a>
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Aufwandserfassung</a>
 
-            <div class="nav-collapse">
-                <ul class="nav">
-                    <li class="active">
-                        <a href="./index.html">Home</a>
-                    </li>
-                    <li>
-                        <a href="#/costs/new">Erfassen</a>
-                    </li>
-                    <li>
-                        <a href="#/about">About</a>
-                    </li>
-                </ul>
-            </div>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="./index.html">Home</a>
+              </li>
+              <li>
+                <a href="#/costs/new">Erfassen</a>
+              </li>
+              <li>
+                <a href="#/about">About</a>
+              </li>
+            </ul>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<!-- CONTENT -->
-<div class="container">
-    <div ng-view>
+    <!-- CONTENT -->
+    <div class="container">
+      <div ng-view>
 
-    </div>
-    <hr>
-    <footer>
+      </div>
+      <hr>
+      <footer>
         <p>© LorenzBern & Fischer Matte 2013</p>
-    </footer>
-</div>
-</body>
+      </footer>
+    </div>
+  </body>
 </html>

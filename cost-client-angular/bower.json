@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "angular": "~1.0.7",
-    "jquery": "~1.8.0",
+    "jquery": "~2.0.3",
     "bootstrap": "~2.3.2",
     "angular-grid": "~2.0.6",
     "angular-resource": "~1.0.7",
