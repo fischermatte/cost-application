@@ -1,15 +1,15 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('costsApp').service('LocalCostService', ['localStorageService', 'guidGenerator', function(localStorageService, guidGenerator) {
+angular.module('costsApp').service('LocalCostService', ['localStorageService', 'GuidService', function(localStorageService, GuidService) {
     this.save = function(cost, callback) {
       if (!cost.id) {
-        cost.id = guidGenerator.generate();
+        cost.id = GuidService.generate();
       }
       localStorageService.add(cost.id, cost);
       callback();
     };
-    this.query = function(params) {
+    this.query = function() {
       var keys = localStorageService.keys();
       var costs = [];
       for (var key in keys) {

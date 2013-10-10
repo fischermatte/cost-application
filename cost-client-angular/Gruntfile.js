@@ -1,10 +1,10 @@
 'use strict';
 var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
-var mountFolder = function (connect, dir) {
+var mountFolder = function(connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               lrSnippet,
               mountFolder(connect, '.tmp'),
@@ -63,7 +63,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               mountFolder(connect, '.tmp'),
               mountFolder(connect, 'test')
@@ -98,7 +98,9 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/scripts/{,*/}*.js'
+        '<%= yeoman.app %>/scripts/controllers/*.js',
+        '<%= yeoman.app %>/scripts/services/*.js',
+        '<%= yeoman.app %>/scripts/*.js'
       ]
     },
     karma: {
@@ -280,6 +282,26 @@ module.exports = function (grunt) {
           }
         ]
       }
+    },
+    manifest: {
+      generate: {
+        options: {
+          basePath: '<%= yeoman.dist %>',
+          cache: [],
+          network: ['*'],
+          fallback: [],
+          exclude: [],
+          preferOnline: true,
+          verbose: true,
+          timestamp: true,
+          hash: true,
+          master: ['index.html']
+        },
+        src: [
+          'scripts/*', 'img/*', 'styles/*', 'views/*', 'index.html'
+        ],
+        dest: '<%= yeoman.dist %>/manifest.appcache'
+      }
     }
   });
 
@@ -317,7 +339,8 @@ module.exports = function (grunt) {
     'ngmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'manifest'
   ]);
 
   grunt.registerTask('default', ['build']);
