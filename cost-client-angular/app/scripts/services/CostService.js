@@ -1,10 +1,30 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('costsApp').factory('CostService', ['$resource', function ($resource) {
-//  var url = 'http://localhost\\:8080/';
-  var url = 'https://cost-server.appspot.com/';
-  return $resource(url + 'costs/:id', {id: '@id'}, {
-    query: { method: 'GET', params: {pageSize: 25, page: 1}, isArray: true }
-  });
-}]);
+angular.module('costsApp').service('CostService', ['$rootScope', 'LocalCostService', 'RemoteCostService', function($rootScope, LocalCostService, RemoteCostService) {
+    $rootScope.localMode = true;
+    this.setStorageMode = function(storageMode) {
+      $rootScope.storageMode = storageMode;
+    };
+    this.getActive = function() {
+      if ($rootScope.localMode) {
+        return LocalCostService;
+      } else {
+        return RemoteCostService;
+      }
+    };
+    this.pushLocalToRemote = function(callback) {
+      var outer = this;
+      var costs = LocalCostService.query();
+      if (!costs || costs.length === 0) {
+        return callback();
+      }
+      var cost = costs[0];
+      var uuid = cost.id;
+      cost.id = null;
+      RemoteCostService.save(cost, function() {
+        LocalCostService.deleteByGuid(uuid);
+        outer.pushLocalToRemote(callback);
+      });
+    };
+  }]);

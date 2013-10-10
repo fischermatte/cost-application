@@ -1,16 +1,20 @@
 <div class="well">
-    <h2>Aufwände</h2>
+  <h2>Aufwände</h2>
 
-    <p>
-        Kann Aufwanderfassung Spass machen? So wohl kaum ;)
-    </p>
+  <p>
+    Kann Aufwanderfassung Spass machen? So wohl kaum ;)
+  </p>
 
-    <p>
-        <a class="btn btn-large btn-primary" href="#/costs/new">Neuer Aufwand</a>
-    </p>
+  <p>
+    <a class="btn btn-large btn-primary" href="#/costs/new">Neuer Aufwand</a>
+  </p>
 </div>
 
 <div>
-    <div class="grid" ng-grid="gridOptions">
-    </div>
+  <div ng-controller="StorageModeCtrl" style="margin: 10px;">
+    <input type="button" class="btn btn-primary" ng-click="toggleMode()" value="{{mode()}}"/>
+    <input type="button" class="btn btn-primary" ng-click="pushLocalToRemote()" value="Push Local to Remote"/>
+  </div>
+  <div class="grid" ng-grid="gridOptions">
+  </div>
 </div>
