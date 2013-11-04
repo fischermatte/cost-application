@@ -11,9 +11,8 @@ import com.google.gwt.user.client.ui.RootPanel;
 public class CostModule implements EntryPoint {
 	public void onModuleLoad() {
 		CostServiceAsync costService = GWT.create(CostService.class);
-		Messages messages = GWT.create(Messages.class);
 	    HandlerManager eventBus = new HandlerManager(null);
-	    AppController appViewer = new AppController(costService, eventBus, messages);
+	    AppController appViewer = new AppController(costService, eventBus);
 	    appViewer.go(RootPanel.get());
 	}
 }

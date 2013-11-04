@@ -21,13 +21,11 @@ public class AppController implements ValueChangeHandler<String> {
 
 	CostServiceAsync costService;
 	HandlerManager eventBus;
-	Messages messages;
 	HasWidgets container;
 
-	public AppController(CostServiceAsync costService, HandlerManager eventBus, Messages messages) {
+	public AppController(CostServiceAsync costService, HandlerManager eventBus) {
 		this.costService = costService;
 		this.eventBus = eventBus;
-		this.messages = messages;
 		bind();
 	}
 
@@ -93,14 +91,6 @@ public class AppController implements ValueChangeHandler<String> {
 
 	public void setEventBus(HandlerManager eventBus) {
 		this.eventBus = eventBus;
-	}
-
-	public Messages getMessages() {
-		return messages;
-	}
-
-	public void setMessages(Messages messages) {
-		this.messages = messages;
 	}
 
 }
